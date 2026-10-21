@@ -1,0 +1,7 @@
+---
+import { createHash } from 'node:crypto';
+
+const componentScript = "console.log('component script');";
+Astro.csp?.insertScriptHash(`sha256-${createHash('sha256').update(componentScript).digest('base64')}`);
+---
+<script is:inline set:html={componentScript}></script>

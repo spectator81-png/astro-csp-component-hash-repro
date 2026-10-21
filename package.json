@@ -1,0 +1,13 @@
+{
+  "name": "astro-csp-component-hash-repro",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "astro build",
+    "check-csp": "node check-csp.mjs"
+  },
+  "dependencies": {
+    "astro": "7.4.2"
+  }
+}

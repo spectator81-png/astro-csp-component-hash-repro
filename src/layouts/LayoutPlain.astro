@@ -1,0 +1,16 @@
+---
+import { createHash } from 'node:crypto';
+
+const layoutScript = "console.log('layout script');";
+Astro.csp?.insertScriptHash(`sha256-${createHash('sha256').update(layoutScript).digest('base64')}`);
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Layout without named slot in head</title>
+    <script is:inline set:html={layoutScript}></script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
